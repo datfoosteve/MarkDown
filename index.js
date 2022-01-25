@@ -15,9 +15,19 @@ const questions = [
     message: "What is the title?",
   },
   {
+    type: "confirm",
+    name: "logo",
+    message: "Does this program have a logo?",
+  },
+  {
     type: "input",
     name: "description",
     message: "Describe this program?",
+  },
+  {
+    type: "confirm",
+    name: "visual",
+    message: "Are you including a visual description?",
   },
   {
     type: "input",
@@ -32,7 +42,7 @@ const questions = [
   {
     type: "input",
     name: "credits",
-    message: "Give credit where its due! What entity would you like to include as a creditor",
+    message: "Give credit where its due! What entity would you like to include as a creditor/contributer/donor. If there isnt, Put yourself down.",
   },
   {
     type: "list",
@@ -41,11 +51,32 @@ const questions = [
     choices: [
       new inquirer.Separator(" = Choices = "),
       {
-        name: "Yes",
+        name: "MIT License",
       },
       {
-        name: "No",
+        name: "GNU Lesser General Public License v3.0",
       },
+      {
+        name: "Mozilla Public License 2.0",
+      },
+      {
+        name: "GNU Affero General Public License v3.0",
+      },
+      {
+        name: "The Unlicense",
+      },
+      {
+        name: "Apache License 2.0",
+      },
+      {
+        name: "GNU General Public License v3.0",
+      },
+      {
+        name: "WTFPL",
+      },
+      {
+        name: "None",
+      }
     ],
   }
 
