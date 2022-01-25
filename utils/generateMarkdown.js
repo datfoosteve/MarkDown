@@ -73,7 +73,7 @@ listOfLicenses = [
 function renderLicenseBadge(license) {
   return () => { 
     if (license === "mit"){
-
+ 
     }
     else if(license === "lgpl-3.0 "){
 
