@@ -91,8 +91,6 @@ function writeToFile(fileName, data) {
 async function init() {
     const userInput = await inquirer.prompt(questions);
     const readmeText = genReadme(userInput);
-
-    
     writeToFile("./output/README.md",readmeText);
 
 }

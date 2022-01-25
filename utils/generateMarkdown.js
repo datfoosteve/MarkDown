@@ -181,7 +181,7 @@ ${data.usage}
 
 ${data.credits}
 
-${data.license}
+${renderLicenseSection()}
 
 
 `;
