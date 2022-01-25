@@ -2,14 +2,23 @@ const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
 const fs = require("fs");
 
-
 let obj = {};
 
-
+const askUserStart = {
+  type: "list",
+  name: "userChoice",
+  message: "Would you want this program to Generate you a Readme?",
+  choices: [{
+      name: "Yes",
+    },
+    {
+      name: "No",
+    },
+  ],
+};
 
 // Create an array of questions for user input
-const questions = [
-  {
+const questions = [{
     type: "input",
     name: "title",
     message: "What is the title?",
@@ -49,7 +58,9 @@ const questions = [
     name: "license",
     message: "What license would you like to include for this program?",
     choices: [
-      new inquirer.Separator(" =============================================== "),
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "MIT License",
       },
@@ -77,56 +88,39 @@ const questions = [
       {
         name: "None",
       },
-      new inquirer.Separator(" =============================================== ")
+      new inquirer.Separator(
+        " =============================================== "
+      ),
     ],
-  }
-
+  },
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFileSync(fileName,data);
+  fs.writeFileSync(fileName, data);
 }
 
 // TODO: Create a function to initialize app
- function init() {
-   
-   const letsGo = async() => {
-    const userInput = await inquirer.prompt(questions);
-    const readmeText = genReadme(userInput);
-    writeToFile("./output/README.md",readmeText);
-   }
-   if (letsGo){
-     console.log("It worked!")
-   }
-   else{console.log("It didnt work")}
+function init() {
+  inquirer.prompt(questions).then((userAnswer) => {
+      const readmeText = genReadme(userAnswer);
+      writeToFile("./output/README.md", readmeText);
+    }
 
+  )
 }
 
-async function startReadmeGen(){
-  const startProg = await inquirer.prompt({
-    type: "list",
-    name: userChoice,
-    message: "Would you like to generate a README.md for a project?",
-    choices: [
-      
-      {
-        name:"Yes",
-      },
-      
-      {
-        name:"No",
-      },
-      
-    ],
-      
-  }
-  ).then(() => {
-    if (userChoice === 'No'){
-    return;
-  }else{ 
-    init();
-  }})
+function startReadme() {
+  inquirer.prompt(askUserStart).then((userAnswer) => {
+    if (userAnswer.userChoice === "Yes"){
+      init();
+    } else if (userAnswer.userChoice === "No"){
+      console.log("User Rejected MarkDown Generation: Closing");
+      return false;
+    } else {
+      console.log("Error");
+    }
+  });
 }
 // Function call to initialize app
-startReadmeGen();
+startReadme();

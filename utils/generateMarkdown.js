@@ -1,83 +1,87 @@
 
 
+
+//make sure to deconstruct the object so you can use em
+
 // function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-    let badge;
+    
     if (license === "MIT License"){
-      return badge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+      return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
     }
     else if(license === "GNU Lesser General Public License v3.0"){
-      return badge = `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`
+      return `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`
     }
     else if(license === "Mozilla Public License 2.0"){
-      return badge = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
+      return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
     }
     else if(license === "GNU Affero General Public License v3.0"){
-      return badge = `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`
+      return `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`
     }
     else if(license === "The Unlicense"){
-      return badge = `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`
+      return `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`
     }
     else if(license === "Apache License 2.0"){
-      return badge = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+      return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
     }
     else if(license === "GNU General Public License v3.0"){
-      return badge = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
+      return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
     }
     else if(license === "WTFPL"){
-      return badge = `[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
+      return `[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
     }
     else{ //
-    badge = ``;
+    return ``
   }
-  return badge;
   }
   
 
 
-//  Create a function that returns the license link
-// If there is no license, return an empty string
-// function renderLicenseLink(license) {
-//   if (license === "MIT License"){
+ Create a function that returns the license link
+If there is no license, return an empty string
+function renderLicenseLink(license) {
+  if (license === "MIT License"){
     
-//   }
-//   else if(license === "GNU Lesser General Public License v3.0"){
+  }
+  else if(license === "GNU Lesser General Public License v3.0"){
 
-//   }
-//   else if(license === "Mozilla Public License 2.0"){
+  }
+  else if(license === "Mozilla Public License 2.0"){
 
-//   }
-//   else if(license === "GNU Affero General Public License v3.0"){
+  }
+  else if(license === "GNU Affero General Public License v3.0"){
 
-//   }
-//   else if(license === "The Unlicense"){
+  }
+  else if(license === "The Unlicense"){
 
-//   }
-//   else if(license === "Apache License 2.0"){
+  }
+  else if(license === "Apache License 2.0"){
 
-//   }
-//   else if(license === "GNU General Public License v3.0"){
+  }
+  else if(license === "GNU General Public License v3.0"){
 
-//   }
-//   else if(license === "WTFPL"){
+  }
+  else if(license === "WTFPL"){
 
-//   }
-//   else{ //
-//   license = ``;
-// }
+  }
+  else{ //
+  license = ``;
+}
 
-// }
+}
 
   
 // Create a function that returns the license section of README
 // If there is no license, return an empty string
 //  //${renderLicenseLink(license)}
 function renderLicenseSection(license) {
+let renderString = renderLicenseBadge(license);
+  
   if (license){
     return `## License
 
-    ${renderLicenseBadge(license)}
+    ${renderString}
 
     `
   }
@@ -119,7 +123,7 @@ ${renderLicenseSection()}
 `;
 }
 
-module.exports = generateMarkdown;
+
 
 
 
@@ -189,3 +193,5 @@ listOfLicenses = [
    }
      
  ]
+
+ module.exports = generateMarkdown;
