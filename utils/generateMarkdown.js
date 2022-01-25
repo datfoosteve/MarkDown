@@ -72,11 +72,34 @@ listOfLicenses = [
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   return () => { 
-    if (license === ""){
+    if (license === "mit"){
 
-    }else if{
-      
     }
+    else if(license === "lgpl-3.0 "){
+
+    }
+    else if(license === "mpl-2.0 "){
+
+    }
+    else if(license === "agpl-3.0 "){
+
+    }
+    else if(license === "unlicense "){
+
+    }
+    else if(license === "apache-2.0 "){
+
+    }
+    else if(license === "gpl-3.0 "){
+
+    }
+    else if(license === "WTFPL "){
+
+    }
+    else{ //
+    
+    license = ``;
+  }
   }
   
 }
@@ -84,7 +107,7 @@ function renderLicenseBadge(license) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  return ``
+  return () => {``}
 
 }
 
@@ -92,7 +115,12 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-return ``
+  return () => { `
+  ## License
+  
+
+  `
+}
 }
 
 // TODO: Create a function to generate markdown for README

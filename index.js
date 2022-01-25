@@ -5,9 +5,9 @@ const fs = require("fs");
 
 let obj = {};
 
-// TODO: Include packages needed for this application
 
-// TODO: Create an array of questions for user input
+
+// Create an array of questions for user input
 const questions = [
   {
     type: "input",
@@ -34,6 +34,21 @@ const questions = [
     name: "credits",
     message: "Give credit where its due! What entity would you like to include as a creditor",
   },
+  {
+    type: "list",
+    name: "license",
+    message: "What license would you like to include for this program?",
+    choices: [
+      new inquirer.Separator(" = Choices = "),
+      {
+        name: "Yes",
+      },
+      {
+        name: "No",
+      },
+    ],
+  }
+
 ];
 
 // TODO: Create a function to write README file
@@ -52,7 +67,7 @@ async function init() {
 }
 
 function startReadmeGen{
-  const generateReadme = {
+  const programStart = {
     type: "list",
     name: "userChoice",
     message: "Would you like to generate a README.md for a project?",
