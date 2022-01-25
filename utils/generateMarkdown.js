@@ -6,7 +6,7 @@ listOfLicenses = [
     "spdx_id": "MIT",
     "url": "https://api.github.com/licenses/mit",
     "node_id": "MDc6TGljZW5zZW1pdA==",
-    "badge": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    "badge": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
   },
   {
     "key": "lgpl-3.0",
@@ -38,7 +38,7 @@ listOfLicenses = [
     "spdx_id": "Unlicense",
     "url": "https://api.github.com/licenses/unlicense",
     "node_id": "MDc6TGljZW5zZW1pdA==",
-    "badge": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
+    "badge": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)"
   },
   {
     "key": "apache-2.0",
@@ -54,7 +54,7 @@ listOfLicenses = [
     "spdx_id": "GPL-3.0",
     "url": "https://api.github.com/licenses/gpl-3.0",
     "node_id": "MDc6TGljZW5zZW1pdA==",
-    "badge": "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
+    "badge": "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
   },
   {"key": "WTFPL",
     "name": "The Do What the Fuck You Want to Public License",

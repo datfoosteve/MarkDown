@@ -95,7 +95,7 @@ async function init() {
 
 }
 
-function startReadmeGen{
+function startReadmeGen(){
   const programStart = {
     type: "list",
     name: "userChoice",
