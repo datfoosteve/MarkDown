@@ -1,8 +1,8 @@
-# Why
+# Some Program
 
 ## Description
 
-am
+IT makes Markdown Shit
 
 ## Table of Contents (Optional)
 
@@ -13,18 +13,16 @@ am
 
 ## Installation
 
-I
+Pressing INstall button
 
 ## Usage
 
-//Usage
+Node index.js
 
 ## Credits
 
-// credits
+ME DAWG
 
-## License
 
-// License
 
 

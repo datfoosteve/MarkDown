@@ -49,7 +49,7 @@ const questions = [
     name: "license",
     message: "What license would you like to include for this program?",
     choices: [
-      new inquirer.Separator(" = Choices = "),
+      new inquirer.Separator(" =============================================== "),
       {
         name: "MIT License",
       },
@@ -76,7 +76,8 @@ const questions = [
       },
       {
         name: "None",
-      }
+      },
+      new inquirer.Separator(" =============================================== ")
     ],
   }
 
@@ -88,34 +89,44 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-async function init() {
+ function init() {
+   
+   const letsGo = async() => {
     const userInput = await inquirer.prompt(questions);
     const readmeText = genReadme(userInput);
     writeToFile("./output/README.md",readmeText);
+   }
+   if (letsGo){
+     console.log("It worked!")
+   }
+   else{console.log("It didnt work")}
 
 }
 
-function startReadmeGen(){
-  const programStart = {
+async function startReadmeGen(){
+  const startProg = await inquirer.prompt({
     type: "list",
-    name: "userChoice",
+    name: userChoice,
     message: "Would you like to generate a README.md for a project?",
     choices: [
-      new inquirer.Separator(" = Choices = "),
+      
       {
-        name: "Yes",
+        name:"Yes",
       },
+      
       {
-        name: "No",
+        name:"No",
       },
+      
     ],
-  };
-
-  if (userChoice === 'No'){
+      
+  }
+  ).then(() => {
+    if (userChoice === 'No'){
     return;
   }else{ 
     init();
-  }
+  }})
 }
 // Function call to initialize app
 startReadmeGen();
