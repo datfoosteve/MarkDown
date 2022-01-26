@@ -29,7 +29,8 @@ function renderLicenseBadge(license) {
       return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
     }
     else if(license === "WTFPL"){
-      return `[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
+      return `[![License: WTFPL](https://img.shields.i
+        o/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
     }
     else{ //
     return ``
@@ -38,8 +39,8 @@ function renderLicenseBadge(license) {
   
 
 
- Create a function that returns the license link
-If there is no license, return an empty string
+//  Create a function that returns the license link
+// If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === "MIT License"){
     
@@ -78,7 +79,7 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
 let renderString = renderLicenseBadge(license);
   
-  if (license){
+  if (license != 'None'){
     return `## License
 
     ${renderString}
@@ -117,7 +118,7 @@ ${data.usage}
 
 ${data.credits}
 
-${renderLicenseSection()}
+${renderLicenseSection(data.license)}
 
 
 `;
