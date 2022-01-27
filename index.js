@@ -2,15 +2,11 @@ const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
 const fs = require("fs");
 
-//need to slow down prompts
-const sleep = (milliseconds) => {
-  return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
 
 const askUserStart = {
   type: "list",
   name: "userChoice",
-  message: "Would you want this program to Generate you a Readme?",
+  message: "Welcome. Would you want this program to generate you a README.md File?",
   choices: [{
       name: "Yes",
     },
@@ -96,6 +92,11 @@ const questions = [{
       ),
     ],
   },
+  {
+    type: "input",
+    name: "future",
+    message: "Future Plans for this project? State them here",
+  },
 ];
 
 // TODO: Create a function to write README file
@@ -103,20 +104,23 @@ function writeToFile(fileName, data) {
   fs.writeFileSync(fileName, data);
 }
 
+
+
+
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((userAnswer) => {
       const readmeText = genReadme(userAnswer);
       console.clear();
       console.log("Answers recorded");
-      sleep(5000);
+
       console.clear();
       console.log("Generating Markdown...");
-      sleep(5000);
+
       writeToFile("./output/README.md", readmeText);
       console.clear();
       console.log("Generation Complete");
-      sleep(5000);
+
       console.log("Search Distribution Folder for the Generated file");
     }
 
@@ -125,13 +129,13 @@ function init() {
 
 function startReadme() {
   inquirer.prompt(askUserStart).then((userAnswer) => {
-    if (userAnswer.userChoice === "Yes"){
+    if (userAnswer.userChoice === "Yes") {
       console.clear();
       console.log("Initilizing Program: Markdown Generator");
       init();
-    } else if (userAnswer.userChoice === "No"){
-      sleep(5000);
+    } else if (userAnswer.userChoice === "No") {
       console.clear();
+
       console.log("User Rejected MarkDown Generation: Closing");
       return false;
     } else {
@@ -140,6 +144,4 @@ function startReadme() {
   });
 }
 // Function call to initialize app
-console.log("Welcome");
-sleep(5000);
 startReadme();
