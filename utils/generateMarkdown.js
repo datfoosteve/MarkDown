@@ -60,9 +60,11 @@ function renderLicenseSection(license) {
   if (license != 'None') {
     return `## License
 
+    
     ${renderString}
     ${renderLicenseLink(license)}
-
+    [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
+    
     `
   } else { //
     return ``;
@@ -87,62 +89,79 @@ function renderVisualDescription(data) {
   }
 
 }
-  // THis one is for logos, no explanation, just creates an open space
-  function renderLogo(data) {
+// THis one is for logos, no explanation, just creates an open space
+function renderLogo(data) {
 
-    if (data.logo === true) {
-      return `
-    ## Visual Representation
-
-    
-
-
-
-    `
-    } else { //
-      return ``;
-    }
-  }
-
-
-
-  // TODO: Create a function to generate markdown for README
-  function generateMarkdown(data) {
+  if (data.logo === true) {
     return `
-  
-  # ${data.title}
+    ## <p align="center"> Visual Representation
+    </p>
+    
+    `
+  } else { //
+    return ``;
+  }
+}
+// TODO: Create a function to generate markdown for README
+function generateMarkdown(data) {
+  return `
+  #<p align="center">${data.title} </p>
 
-${renderLogo(data)}
+  ${renderLogo(data)}
 
 ## Description
+${"```md"}
 
 ${data.description}
 
+${"```"}
+
+
 ## Table of Contents
 
+${"```md"}
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
-
+${"```"}
 
 ${renderVisualDescription(data)}
 
 ## Installation
 
+${"```md"}
 ${data.install}
+${"```"}
 
 ## Usage
 
+${"```md"}
 ${data.usage}
+${"```"}
+
+
+## Integration/Deploy Links
+
+${data.links}
 
 ## Credits
 
+${"```md"}
+
 ${data.credits}
+
+${"```"}
 
 ${renderLicenseSection(data.license)}
 
+[![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
 
+## Project/Assignment-Status
+
+${"```md"}
+${data.future}
+${"```"}
 `;
   }
 
@@ -150,71 +169,71 @@ ${renderLicenseSection(data.license)}
 
 
 
-  listOfLicenses = [{
-      "key": "mit",
-      "name": "MIT License",
-      "spdx_id": "MIT",
-      "url": "https://api.github.com/licenses/mit",
-      "node_id": "MDc6TGljZW5zZW1pdA==",
-      "badge": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
-    },
-    {
-      "key": "lgpl-3.0",
-      "name": "GNU Lesser General Public License v3.0",
-      "spdx_id": "LGPL-3.0",
-      "url": "https://api.github.com/licenses/lgpl-3.0",
-      "node_id": "MDc6TGljZW5zZW1pdA==",
-      "badge": "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)"
-    },
-    {
-      "key": "mpl-2.0",
-      "name": "Mozilla Public License 2.0",
-      "spdx_id": "MPL-2.0",
-      "url": "https://api.github.com/licenses/mpl-2.0",
-      "node_id": "MDc6TGljZW5zZW1pdA==",
-      "badge": "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
-    },
-    {
-      "key": "agpl-3.0",
-      "name": "GNU Affero General Public License v3.0",
-      "spdx_id": "AGPL-3.0",
-      "url": "https://api.github.com/licenses/agpl-3.0",
-      "node_id": "MDc6TGljZW5zZW1pdA==",
-      "badge": "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)"
-    },
-    {
-      "key": "unlicense",
-      "name": "The Unlicense",
-      "spdx_id": "Unlicense",
-      "url": "https://api.github.com/licenses/unlicense",
-      "node_id": "MDc6TGljZW5zZW1pdA==",
-      "badge": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)"
-    },
-    {
-      "key": "apache-2.0",
-      "name": "Apache License 2.0",
-      "spdx_id": "Apache-2.0",
-      "url": "https://api.github.com/licenses/apache-2.0",
-      "node_id": "MDc6TGljZW5zZW1pdA==",
-      "badge": "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
-    },
-    {
-      "key": "gpl-3.0",
-      "name": "GNU General Public License v3.0",
-      "spdx_id": "GPL-3.0",
-      "url": "https://api.github.com/licenses/gpl-3.0",
-      "node_id": "MDc6TGljZW5zZW1pdA==",
-      "badge": "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
-    },
-    {
-      "key": "WTFPL",
-      "name": "The Do What the Fuck You Want to Public License",
-      "spdx_id": "WTFPL",
-      "url": "http://www.wtfpl.net/about/",
-      "node_id": "not known",
-      "badge": "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)"
-    }
+  // listOfLicenses = [{
+  //     "key": "mit",
+  //     "name": "MIT License",
+  //     "spdx_id": "MIT",
+  //     "url": "https://api.github.com/licenses/mit",
+  //     "node_id": "MDc6TGljZW5zZW1pdA==",
+  //     "badge": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"
+  //   },
+  //   {
+  //     "key": "lgpl-3.0",
+  //     "name": "GNU Lesser General Public License v3.0",
+  //     "spdx_id": "LGPL-3.0",
+  //     "url": "https://api.github.com/licenses/lgpl-3.0",
+  //     "node_id": "MDc6TGljZW5zZW1pdA==",
+  //     "badge": "[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)"
+  //   },
+  //   {
+  //     "key": "mpl-2.0",
+  //     "name": "Mozilla Public License 2.0",
+  //     "spdx_id": "MPL-2.0",
+  //     "url": "https://api.github.com/licenses/mpl-2.0",
+  //     "node_id": "MDc6TGljZW5zZW1pdA==",
+  //     "badge": "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"
+  //   },
+  //   {
+  //     "key": "agpl-3.0",
+  //     "name": "GNU Affero General Public License v3.0",
+  //     "spdx_id": "AGPL-3.0",
+  //     "url": "https://api.github.com/licenses/agpl-3.0",
+  //     "node_id": "MDc6TGljZW5zZW1pdA==",
+  //     "badge": "[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)"
+  //   },
+  //   {
+  //     "key": "unlicense",
+  //     "name": "The Unlicense",
+  //     "spdx_id": "Unlicense",
+  //     "url": "https://api.github.com/licenses/unlicense",
+  //     "node_id": "MDc6TGljZW5zZW1pdA==",
+  //     "badge": "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)"
+  //   },
+  //   {
+  //     "key": "apache-2.0",
+  //     "name": "Apache License 2.0",
+  //     "spdx_id": "Apache-2.0",
+  //     "url": "https://api.github.com/licenses/apache-2.0",
+  //     "node_id": "MDc6TGljZW5zZW1pdA==",
+  //     "badge": "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"
+  //   },
+  //   {
+  //     "key": "gpl-3.0",
+  //     "name": "GNU General Public License v3.0",
+  //     "spdx_id": "GPL-3.0",
+  //     "url": "https://api.github.com/licenses/gpl-3.0",
+  //     "node_id": "MDc6TGljZW5zZW1pdA==",
+  //     "badge": "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
+  //   },
+  //   {
+  //     "key": "WTFPL",
+  //     "name": "The Do What the Fuck You Want to Public License",
+  //     "spdx_id": "WTFPL",
+  //     "url": "http://www.wtfpl.net/about/",
+  //     "node_id": "not known",
+  //     "badge": "[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)"
+  //   }
 
-  ]
+  // ]
 
   module.exports = generateMarkdown;

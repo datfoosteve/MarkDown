@@ -2,7 +2,7 @@ const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
 const fs = require("fs");
 
-
+/* This code is used to ask the user if they want to generate a README.md file. */
 const askUserStart = {
   type: "list",
   name: "userChoice",
@@ -16,7 +16,7 @@ const askUserStart = {
   ],
 };
 
-// Create an array of questions for user input
+// an array of questions for user input
 const questions = [{
     type: "input",
     name: "title",
@@ -49,8 +49,13 @@ const questions = [{
   },
   {
     type: "input",
+    name: "links",
+    message: "Input your Deploy link if you have one",
+  },
+  {
+    type: "input",
     name: "credits",
-    message: "Give credit where its due! What entity would you like to include as a creditor/contributer/donor. If there isnt, Put yourself down.",
+    message: "Give credit where its due!",
   },
   {
     type: "list",
@@ -99,32 +104,27 @@ const questions = [{
   },
 ];
 
-// TODO: Create a function to write README file
+// function to write README file
 function writeToFile(fileName, data) {
   fs.writeFileSync(fileName, data);
 }
 
-
-
-
-// TODO: Create a function to initialize app
+// function to initialize app
 function init() {
   inquirer.prompt(questions).then((userAnswer) => {
-      const readmeText = genReadme(userAnswer);
-      console.clear();
-      console.log("Answers recorded");
+    const readmeText = genReadme(userAnswer);
+    console.clear();
+    console.log("Answers recorded");
 
-      console.clear();
-      console.log("Generating Markdown...");
+    console.clear();
+    console.log("Generating Markdown...");
 
-      writeToFile("./output/README.md", readmeText);
-      console.clear();
-      console.log("Generation Complete");
+    writeToFile("./output/README.md", readmeText);
+    console.clear();
+    console.log("Generation Complete");
 
-      console.log("Search Distribution Folder for the Generated file");
-    }
-
-  )
+    console.log("Search Distribution Folder for the Generated file");
+  });
 }
 
 function startReadme() {
