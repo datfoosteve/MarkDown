@@ -2,7 +2,10 @@ const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
 const fs = require("fs");
 
-let obj = {};
+//need to slow down prompts
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
 
 const askUserStart = {
   type: "list",
@@ -21,7 +24,7 @@ const askUserStart = {
 const questions = [{
     type: "input",
     name: "title",
-    message: "What is the title?",
+    message: "What is the title Program Application?",
   },
   {
     type: "confirm",
@@ -104,7 +107,17 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then((userAnswer) => {
       const readmeText = genReadme(userAnswer);
+      console.clear();
+      console.log("Answers recorded");
+      sleep(5000);
+      console.clear();
+      console.log("Generating Markdown...");
+      sleep(5000);
       writeToFile("./output/README.md", readmeText);
+      console.clear();
+      console.log("Generation Complete");
+      sleep(5000);
+      console.log("Search Distribution Folder for the Generated file");
     }
 
   )
@@ -113,8 +126,12 @@ function init() {
 function startReadme() {
   inquirer.prompt(askUserStart).then((userAnswer) => {
     if (userAnswer.userChoice === "Yes"){
+      console.clear();
+      console.log("Initilizing Program: Markdown Generator");
       init();
     } else if (userAnswer.userChoice === "No"){
+      sleep(5000);
+      console.clear();
       console.log("User Rejected MarkDown Generation: Closing");
       return false;
     } else {
@@ -123,4 +140,6 @@ function startReadme() {
   });
 }
 // Function call to initialize app
+console.log("Welcome");
+sleep(5000);
 startReadme();
