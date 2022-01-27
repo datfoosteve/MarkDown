@@ -73,7 +73,7 @@ function renderLicenseSection(license) {
 // further then that, but i gotta use it for my next assignments, thats why its here
 function renderVisualDescription(data) {
 
-  if (data.visual != true) {
+  if (data.visual === true) {
     return `
     
 
@@ -90,7 +90,7 @@ function renderVisualDescription(data) {
   // THis one is for logos, no explanation, just creates an open space
   function renderLogo(data) {
 
-    if (data.logo == true) {
+    if (data.logo === true) {
       return `
     ## Visual Representation
 
