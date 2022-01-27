@@ -1,3 +1,5 @@
+
+
 // function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -58,14 +60,13 @@ function renderLicenseSection(license) {
   let renderString = renderLicenseBadge(license);
 
   if (license != 'None') {
-    return `## License
-    ${"```md"}
+    
+    return`## License
     ${renderString}${renderLicenseLink(license)}
     [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
-    ${"```"}
     `
   } else { //
-    return ``;
+    return``;
   }
 }
 
@@ -74,7 +75,7 @@ function renderLicenseSection(license) {
 function renderVisualDescription(data) {
 
   if (data.visual === true) {
-    return `
+    return`
     
 
     
@@ -83,7 +84,7 @@ function renderVisualDescription(data) {
 
     `
   } else { //
-    return ``;
+    return``;
   }
 
 }
@@ -91,20 +92,25 @@ function renderVisualDescription(data) {
 function renderLogo(data) {
 
   if (data.logo === true) {
-    return `
+    return`
     ## <p align="center"> Visual Representation
     </p>
-    
     `
   } else { //
-    return ``;
+    return``;
   }
 }
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `
-  #<p align="center">${data.title} </p>
 
+function genTable(data){
+
+}
+
+
+ //a function to generate markdown for README
+function generateMarkdown(data) {
+  return`
+  #<p align="center">${data.title} </p>
+  ${renderLicenseBadge(license)}
   ${renderLogo(data)}
 
 ## Description
@@ -122,6 +128,10 @@ ${"```md"}
 - [Usage](#usage)
 - [Credits](#credits)
 - [License](#license)
+- [Integration/Deploy Links]
+- [Contact info/Questions]
+- [Project/Assignment-Status]
+
 ${"```"}
 
 ${renderVisualDescription(data)}
@@ -150,6 +160,12 @@ ${"```md"}
 ${data.credits}
 
 ${"```"}
+
+## Contact info/Questions
+[stephenandarlie@gmail.com](This IS my Email)
+[https://github.com/datfoosteve](Github Link)
+
+Feel Free To Contact me with any of your questions!
 
 ${renderLicenseSection(data.license)}
 
