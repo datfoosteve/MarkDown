@@ -57,12 +57,14 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 //  //${renderLicenseLink(license)}
 function renderLicenseSection(license) {
-  let renderString = renderLicenseBadge(license);
 
   if (license != 'None') {
     
     return`## License
-    ${renderString}${renderLicenseLink(license)}
+    ${renderLicenseBadge(license)}
+
+    ${renderLicenseLink(license)}
+    
     [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
     `
   } else { //
@@ -100,14 +102,15 @@ function renderLogo(data) {
   if (data.logo === true) {
     return`
     ## <p align="center"> Visual Representation
-    </p>
-    `
-  } else { //
+
+    </p>`;
+  }else { 
     return``;
   }
 }
 
 function genTable(data){
+
 
 }
 
@@ -115,12 +118,12 @@ function genTable(data){
  //a function to generate markdown for README
 function generateMarkdown(data) {
   return`
-  #<p align="center">
-${data.title}
+  <p align="center">
+#${data.title}
 
 </p>
   
-${renderLicenseTop(license)}
+${renderLicenseTop(data.license)}
 
 ${renderLogo(data)}
 
@@ -173,8 +176,8 @@ ${data.credits}
 ${"```"}
 
 ## Contact info/Questions
-[stephenandarlie@gmail.com](This IS my Email)
-[https://github.com/datfoosteve](Github Link)
+[This is my Email](stephenandarlie@gmail.com)
+[GithubLink](https://github.com/datfoosteve)
 
 Feel Free To Contact me with any of your questions!
 
