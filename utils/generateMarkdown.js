@@ -29,8 +29,7 @@ function renderLicenseBadge(license) {
       return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
     }
     else if(license === "WTFPL"){
-      return `[![License: WTFPL](https://img.shields.i
-        o/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
+      return `[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
     }
     else{ //
     return ``
@@ -43,28 +42,28 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === "MIT License"){
-    
+    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   }
   else if(license === "GNU Lesser General Public License v3.0"){
-
+    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   }
   else if(license === "Mozilla Public License 2.0"){
-
+    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   }
   else if(license === "GNU Affero General Public License v3.0"){
-
+    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   }
   else if(license === "The Unlicense"){
-
+    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   }
   else if(license === "Apache License 2.0"){
-
+    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   }
   else if(license === "GNU General Public License v3.0"){
-
+    return '[![GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0)]'
   }
   else if(license === "WTFPL"){
-
+    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   }
   else{ //
   license = ``;
@@ -89,6 +88,14 @@ let renderString = renderLicenseBadge(license);
   else{ //
   return ``;
 }
+}
+
+function renderVisualDescription(data){
+return 
+
+
+
+
 }
 
 // TODO: Create a function to generate markdown for README
