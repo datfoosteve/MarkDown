@@ -59,12 +59,10 @@ function renderLicenseSection(license) {
 
   if (license != 'None') {
     return `## License
-
-    
-    ${renderString}
-    ${renderLicenseLink(license)}
+    ${"```md"}
+    ${renderString}${renderLicenseLink(license)}
     [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
-    
+    ${"```"}
     `
   } else { //
     return ``;
