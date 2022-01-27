@@ -70,6 +70,15 @@ function renderLicenseSection(license) {
   }
 }
 
+// rendering for the top of the page
+function renderLicenseTop(license) {
+  if (license != 'None') {
+    return`${renderLicenseBadge(license)}`;
+  } else { //
+    return``;
+  }
+}
+
 // this code block just creates space for you to put gifs and such, it doesnt do anything
 // further then that, but i gotta use it for my next assignments, thats why its here
 function renderVisualDescription(data) {
@@ -77,9 +86,6 @@ function renderVisualDescription(data) {
   if (data.visual === true) {
     return`
     
-
-    
-
 
 
     `
@@ -109,9 +115,14 @@ function genTable(data){
  //a function to generate markdown for README
 function generateMarkdown(data) {
   return`
-  #<p align="center">${data.title} </p>
-  ${renderLicenseBadge(license)}
-  ${renderLogo(data)}
+  #<p align="center">
+${data.title}
+
+</p>
+  
+${renderLicenseTop(license)}
+
+${renderLogo(data)}
 
 ## Description
 ${"```md"}
@@ -177,7 +188,7 @@ ${"```md"}
 ${data.future}
 ${"```"}
 `;
-  }
+}
 
 
 
