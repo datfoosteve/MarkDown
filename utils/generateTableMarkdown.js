@@ -1,33 +1,54 @@
 
+
+function genValidation(data){
+    let validatedData;
+    if (data.descriptionConfirm === true){ 
+        validatedData.push(`- [Description](#description)`)
+    }
+    else if (data.descriptionConfirm === true){ 
+        validatedData.push(`- [Description](#description)`)
+    }
+    else if (data.descriptionConfirm === true){ 
+        validatedData.push(`- [Description](#description)`)
+    }
+    else if (data.descriptionConfirm === true){ 
+        validatedData.push(`- [Description](#description)`)
+    }
+    else if (data.descriptionConfirm === true){ 
+        validatedData.push(`- [Description](#description)`)
+    }
+    else if (data.descriptionConfirm === true){ 
+        validatedData.push(`- [Description](#description)`)
+    }
+    else if (data.descriptionConfirm === true){ 
+        validatedData.push(`- [Description](#description)`)
+    }
+    else if (data.descriptionConfirm === true){ 
+        validatedData.push(`- [Description](#description)`)
+    }
+    
+}
+
+
 function generateMarkdownTable(data){
-     return`
-     ## Table of Contents
+     return`## Table of Contents
 
      ${"```md"}
+        
 
-     - [Installation](#installation)
-     - [Usage](#usage)
-     - [Credits](#credits)
-     - [License](#license)
-     - [Integration/Deploy Links]
-     - [Contact info/Questions]
-     - [Project/Assignment-Status]
+
+     - [Description](#description)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Integration/Deploy Links](#integrationdeploy-links)
+- [Credits](#credits)
+- [Contact info/Questions](#contact-infoquestions)
+- [License](#license)
+- [Project/Assignment-Status](#projectassignment-status)
      
      ${"```"}
 
 
 `}
 module.exports = generateMarkdown;
-
-
-
-function generateTitle(data){
-
-     return`
-
-}
-function generateTitle(data){
-
-    return`
-
-}

@@ -22,13 +22,15 @@ hi
 ## Table of Contents
 
 ```md
+- [Description](#description)
+- [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Integration/Deploy Links](#integrationdeploy-links)
 - [Credits](#credits)
+- [Contact info/Questions](#contact-infoquestions)
 - [License](#license)
-- [Integration/Deploy Links]
-- [Contact info/Questions]
-- [Project/Assignment-Status]
+- [Project/Assignment-Status](#projectassignment-status)
 
 ```
 

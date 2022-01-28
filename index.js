@@ -93,13 +93,19 @@ const questions = [
   {
     type: "confirm",
     name: "logo",
-    message: "Does this program have a logo and/or do you want to generate a section in this readme for that Logo?",
+    message: "Do you want img src boiler plate placed into the Logo Section??",
     when: (qConfirm) => qConfirm.logoConfirm === true,
+  },
+  {
+    type: "confirm",
+    name: "visual",
+    message: "Do you want img src boiler plate placed into the visual Section?",
+    when: (qConfirm) => qConfirm.visualConfirm === true,
   },
   {
     type: 'editor',
     name: 'description',
-    message: 'Please write a short description of this program. The length of the description must be 2 lines.',
+    message: 'Please write a short description of this program. The length of the description must be ateast 2 lines.',
     when: (qConfirm) => qConfirm.descriptionConfirm === true,
     validate(text) {
       if (text.split('\n').length < 2) {
@@ -127,12 +133,6 @@ const questions = [
       }
   }
 },
-  {
-    type: "confirm",
-    name: "visual",
-    message: "Are you including a visual description?",
-    when: (qConfirm) => qConfirm.visualConfirm === true,
-  },
   {
     type: "input",
     name: "links",
