@@ -17,7 +17,6 @@ const askUserStart = {
   ],
 };
 
-const questionConfirms = 
 
 // an array of questions for user input
 const questions = [
@@ -88,21 +87,16 @@ const questions = [
   {
     type: "input",
     name: "title",
-    type: "confirm",
-    name: "titleConfirm",
     message: "What is the title of this Program Application?",
   },
   {
     type: "confirm",
     name: "logo",
-    name: "logoConfirm",
     message: "Does this program have a logo and/or do you want to generate a section in this readme for that Logo?",
   },
   {
     type: 'editor',
     name: 'description',
-    type: "confirm",
-    name: "descriptionConfirm",
     message: 'Please write a short description of this program. The length of the description must be 2 lines.',
     validate(text) {
       if (text.split('\n').length < 2) {
@@ -112,8 +106,6 @@ const questions = [
   {
     type: 'editor',
     name: 'install',
-    type: "confirm",
-    name: "installConfirm",
     message: 'Please write a short installation summary of the program in atleast 2 lines.',
     validate(text) {
       if (text.split('\n').length < 2) {
@@ -123,8 +115,6 @@ const questions = [
   {
     type: 'editor',
     name: 'usage',
-    type: "confirm",
-    name: "usageConfirm",
     message: 'Please write on how the usage is for this program in atleast 2 lines.',
     validate(text) {
       if (text.split('\n').length < 2) {
@@ -135,21 +125,16 @@ const questions = [
   {
     type: "confirm",
     name: "visual",
-    name: "visualConfirm",
     message: "Are you including a visual description?",
   },
   {
     type: "input",
     name: "links",
-    type: "confirm",
-    name: "linkConfirm",
     message: "Input your Deploy links if you have any.",
   },
   {
     type: "input",
     name: "credits",
-    type: "confirm",
-    name: "creditConfirm",
     message: "Input the creditors of this project.",
   },
   {
