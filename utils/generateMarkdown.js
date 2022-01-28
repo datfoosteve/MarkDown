@@ -1,4 +1,4 @@
-
+const genLogoTable,genVisualTable,genLicenseTable,
 
 // function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -72,7 +72,7 @@ function renderLicenseSection(license) {
   }
 }
 
-// rendering for the top of the page
+// rendering badge for the top of the page
 function renderLicenseTop(license) {
   if (license != 'None') {
     return`${renderLicenseBadge(license)}`;
@@ -88,7 +88,7 @@ function renderVisualDescription(data) {
   if (data.visual === true) {
     return`
     
-
+    ![someImageGIF](/repository/assets/employee.png?raw=true "Employee Data title")
 
     `
   } else { //
@@ -101,7 +101,10 @@ function renderLogo(data) {
 
   if (data.logo === true) {
     return`
-    ## <p align="center"> Visual Representation
+    <p align="center">
+    ##Visual Representation
+
+    ![Somelogo](/repository/assets/employee.png?raw=true "Employee Data title")
 
     </p>`;
   }else { 
@@ -109,12 +112,11 @@ function renderLogo(data) {
   }
 }
 
-function genTable(data){
 
+function generateMarkdown(data) {
+  return`
 
-}
-
-
+`}
  //a function to generate markdown for README
 function generateMarkdown(data) {
   return`

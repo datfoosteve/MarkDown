@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
+const genTableReadme = require("./utils/generateTableMarkdown");
 const fs = require("fs");
 
 /* This code is used to ask the user if they want to generate a README.md file. */
@@ -16,50 +17,153 @@ const askUserStart = {
   ],
 };
 
+const questionConfirms = 
+
 // an array of questions for user input
-const questions = [{
+const questions = [
+  {
+    type: 'checkbox',
+    message: 'Preprocess inquiry Question: Please Select the sections that you want to Generate in your README.md .',
+    name: 'qConfirm',
+    choices: [
+      {
+        name: 'titleConfirm',
+        message: "A title Section"
+      },
+      {
+        name: 'logoConfirm',
+        message: "A Program logo Section"
+      },
+      {
+        name: 'descriptionConfirm',
+        message: "A Program Description Section"
+      },
+      {
+        name: 'installConfirm',
+        message: "A Program install Section"
+      },
+      {
+        name: 'usageConfirm',
+        message: "A Program Usage Section"
+      },
+      {
+        name: 'visualConfirm',
+        message: "A Program Visual Section"
+      },
+      {
+        name: 'linkConfirm',
+        message: "A Program Link Section"
+      },
+      {
+        name: 'creditConfirm',
+        message: "A Contribution/Credit Section"
+      },
+      {
+        name: 'usernameConfirm',
+        message: "A Question Section"
+      },
+      {
+        name: 'licenseConfirm',
+        message: "A Licensing Section"
+      },
+      {
+        name: 'statusConfirm',
+        message: "A Program Status Section"
+      },
+      {
+        name: 'futureConfirm',
+        message: "A Program logo Section"
+      },
+    ],
+    validate(answer) {
+      if (answer.length < 1) {
+        return 'You must atleast Generate one section in this README.md for this to be worthwhile...';
+      }
+  
+      return true;
+    },
+  },
+  
+  
+  {
     type: "input",
     name: "title",
-    message: "What is the title Program Application?",
+    type: "confirm",
+    name: "titleConfirm",
+    message: "What is the title of this Program Application?",
   },
   {
     type: "confirm",
     name: "logo",
-    message: "Does this program have a logo?",
+    name: "logoConfirm",
+    message: "Does this program have a logo and/or do you want to generate a section in this readme for that Logo?",
   },
   {
-    type: "input",
-    name: "description",
-    message: "Describe this program?",
-  },
+    type: 'editor',
+    name: 'description',
+    type: "confirm",
+    name: "descriptionConfirm",
+    message: 'Please write a short description of this program. The length of the description must be 2 lines.',
+    validate(text) {
+      if (text.split('\n').length < 2) {
+        return 'Must be at least 2 lines.';
+      }
+   } },
+  {
+    type: 'editor',
+    name: 'install',
+    type: "confirm",
+    name: "installConfirm",
+    message: 'Please write a short installation summary of the program in atleast 2 lines.',
+    validate(text) {
+      if (text.split('\n').length < 2) {
+        return 'Must be at least 2 lines.';
+      }
+  }},
+  {
+    type: 'editor',
+    name: 'usage',
+    type: "confirm",
+    name: "usageConfirm",
+    message: 'Please write on how the usage is for this program in atleast 2 lines.',
+    validate(text) {
+      if (text.split('\n').length < 2) {
+        return 'Must be at least 2 lines.';
+      }
+  }
+},
   {
     type: "confirm",
     name: "visual",
+    name: "visualConfirm",
     message: "Are you including a visual description?",
   },
   {
     type: "input",
-    name: "install",
-    message: "How do you install this program?",
-  },
-  {
-    type: "input",
-    name: "usage",
-    message: "How do you use this program?",
-  },
-  {
-    type: "input",
     name: "links",
-    message: "Input your Deploy link if you have one",
+    type: "confirm",
+    name: "linkConfirm",
+    message: "Input your Deploy links if you have any.",
   },
   {
     type: "input",
     name: "credits",
-    message: "Give credit where its due!",
+    type: "confirm",
+    name: "creditConfirm",
+    message: "Input the creditors of this project.",
+  },
+  {
+    type: "input",
+    name: "username",
+    type: "confirm",
+    name: "usernameConfirm",
+    message: "Input your github username",
   },
   {
     type: "list",
     name: "license",
+    type: "confirm",
+    name: "licenseConfirm",
     message: "What license would you like to include for this program?",
     choices: [
       new inquirer.Separator(
@@ -98,9 +202,35 @@ const questions = [{
     ],
   },
   {
+    type: "list",
+    name: "status",
+    type: "confirm",
+    name: "statusConfirm",
+    message: "Status of the current project? ",
+    choices: [
+      {
+        name: "Finished and Finalized",
+      },
+      {
+        name: "Finished for now, coming back to it",
+      },
+      {
+        name: "Not Finished, Stil in progress",
+      },
+      {
+        name: "Not finished, Not looking back",
+      },
+      {
+        name: "Uncertain",
+      },
+    ]
+  },
+  {
     type: "input",
     name: "future",
-    message: "Future Plans for this project? State them here",
+    type: "confirm",
+    name: "futureConfirm",
+    message: "Future Plans for this project?",
   },
 ];
 
@@ -112,6 +242,7 @@ function writeToFile(fileName, data) {
 // function to initialize app
 function init() {
   inquirer.prompt(questions).then((userAnswer) => {
+    const readmeText = genTableReadme(userAnswer);
     const readmeText = genReadme(userAnswer);
     console.clear();
     console.log("Answers recorded");
@@ -123,7 +254,8 @@ function init() {
     console.clear();
     console.log("Generation Complete");
 
-    console.log("Search Distribution Folder for the Generated file");
+    console.log("Search your Distribution Folder in this file system for your Generated file");
+    console.log("Goodbye");
   });
 }
 
