@@ -50,7 +50,7 @@ const questions = [
         message: "A Program Visual Section"
       },
       {
-        name: 'linkConfirm',
+        name: 'linksConfirm',
         message: "A Program Link Section"
       },
       {
@@ -88,16 +88,19 @@ const questions = [
     type: "input",
     name: "title",
     message: "What is the title of this Program Application?",
+    when: (qConfirm) => qConfirm.titleConfirm === true,
   },
   {
     type: "confirm",
     name: "logo",
     message: "Does this program have a logo and/or do you want to generate a section in this readme for that Logo?",
+    when: (qConfirm) => qConfirm.logoConfirm === true,
   },
   {
     type: 'editor',
     name: 'description',
     message: 'Please write a short description of this program. The length of the description must be 2 lines.',
+    when: (qConfirm) => qConfirm.descriptionConfirm === true,
     validate(text) {
       if (text.split('\n').length < 2) {
         return 'Must be at least 2 lines.';
@@ -107,6 +110,7 @@ const questions = [
     type: 'editor',
     name: 'install',
     message: 'Please write a short installation summary of the program in atleast 2 lines.',
+    when: (qConfirm) => qConfirm.installConfirm === true,
     validate(text) {
       if (text.split('\n').length < 2) {
         return 'Must be at least 2 lines.';
@@ -116,6 +120,7 @@ const questions = [
     type: 'editor',
     name: 'usage',
     message: 'Please write on how the usage is for this program in atleast 2 lines.',
+    when: (qConfirm) => qConfirm.usageConfirm === true,
     validate(text) {
       if (text.split('\n').length < 2) {
         return 'Must be at least 2 lines.';
@@ -126,30 +131,31 @@ const questions = [
     type: "confirm",
     name: "visual",
     message: "Are you including a visual description?",
+    when: (qConfirm) => qConfirm.visualConfirm === true,
   },
   {
     type: "input",
     name: "links",
     message: "Input your Deploy links if you have any.",
+    when: (qConfirm) => qConfirm.linksConfirm === true,
   },
   {
     type: "input",
     name: "credits",
     message: "Input the creditors of this project.",
+    when: (qConfirm) => qConfirm.creditConfirm === true,
   },
   {
     type: "input",
     name: "username",
-    type: "confirm",
-    name: "usernameConfirm",
     message: "Input your github username",
+    when: (qConfirm) => qConfirm.usernameConfirm === true,
   },
   {
     type: "list",
     name: "license",
-    type: "confirm",
-    name: "licenseConfirm",
     message: "What license would you like to include for this program?",
+    when: (qConfirm) => qConfirm.licenseConfirm === true,
     choices: [
       new inquirer.Separator(
         " =============================================== "
@@ -189,9 +195,8 @@ const questions = [
   {
     type: "list",
     name: "status",
-    type: "confirm",
-    name: "statusConfirm",
     message: "Status of the current project? ",
+    when: (qConfirm) => qConfirm.statusConfirm === true,
     choices: [
       {
         name: "Finished and Finalized",
@@ -213,9 +218,8 @@ const questions = [
   {
     type: "input",
     name: "future",
-    type: "confirm",
-    name: "futureConfirm",
     message: "Future Plans for this project?",
+    when: (qConfirm) => qConfirm.futureConfirm === true,
   },
 ];
 
