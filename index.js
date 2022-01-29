@@ -2,17 +2,20 @@ const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
 const genReadmeTable = require("./utils/generateTableMarkdown");
 const fs = require("fs");
-const { nextTick, exit } = require("process");
-const { doesNotMatch } = require("assert");
+const {
+  nextTick,
+  exit
+} = require("process");
+const {
+  doesNotMatch
+} = require("assert");
 
 /* This code is used to ask the user if they want to generate a README.md file. */
 const askUserStart = {
   type: "list",
   name: "userChoice",
-  message:
-    "Welcome. Would you want this program to generate you a README.md File?",
-  choices: [
-    {
+  message: "Welcome. Would you want this program to generate you a README.md File?",
+  choices: [{
       name: "Yes",
     },
     {
@@ -22,14 +25,11 @@ const askUserStart = {
 };
 
 // an array of questions for user input
-const questions = [
-  {
+const questions = [{
     type: "checkbox",
-    message:
-      "Preprocess inquiry Question: Please Select the sections that you want to Generate in your README.md .",
+    message: "Preprocess inquiry Question: Please Select the sections that you want to Generate in your README.md .",
     name: "qConfirm",
-    choices: [
-      {
+    choices: [{
         name: "titleConfirm",
         message: "A title Section",
       },
@@ -105,14 +105,11 @@ const questions = [
     message: "Do you want img src boiler plate placed into the visual Section?",
     when: (data) => (data.qConfirm.includes("visualConfirm") ? true : false),
   },
-  new inquirer.Separator("NOTE: The next 3 questions will invoke a local text editor to intake Users input, but the editor might take a minute to instantiate, please be patient. "),
   {
-    
     type: "editor",
     name: "description",
-    message:
-      "Please write a short description of this program.The length of the description must be ateast 2 lines.",
-      when: (data) =>
+    message: "Please write a short description of this program.The length of the description must be ateast 2 lines.",
+    when: (data) =>
       data.qConfirm.includes("descriptionConfirm") ? true : false,
     validate(text) {
       if (text.split("\n").length < 2) {
@@ -124,8 +121,7 @@ const questions = [
   {
     type: "editor",
     name: "install",
-    message:
-      "Please write a short installation summary of the program in atleast 2 lines.",
+    message: "Please write a short installation summary of the program in atleast 2 lines.",
     when: (data) => (data.qConfirm.includes("installConfirm") ? true : false),
     validate(text) {
       if (text.split("\n").length < 2) {
@@ -137,8 +133,7 @@ const questions = [
   {
     type: "editor",
     name: "usage",
-    message:
-      "Please write on how the usage is for this program in atleast 2 lines.",
+    message: "Please write on how the usage is for this program in atleast 2 lines.",
     when: (data) => (data.qConfirm.includes("usageConfirm") ? true : false),
     validate(text) {
       if (text.split("\n").length < 2) {
@@ -211,8 +206,7 @@ const questions = [
     name: "status",
     message: "Status of the current project? ",
     when: (data) => (data.qConfirm.includes("statusConfirm") ? true : false),
-    choices: [
-      {
+    choices: [{
         name: "Finished and Finalized",
       },
       {
