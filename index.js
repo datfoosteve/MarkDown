@@ -122,7 +122,7 @@ const questions = [{
     type: "editor",
     name: "install",
     message: "Please write a short installation summary of the program in atleast 2 lines.",
-    when: (data) => (data.qConfirm.includes("installConfirm") ? true : false),
+    when: (data) => data.qConfirm.includes("installConfirm") ? true : false,
     validate(text) {
       if (text.split("\n").length < 2) {
         return "Must be at least 2 lines.";
@@ -141,7 +141,7 @@ const questions = [{
       }
       return true;
     },
-  }.then,
+  },
   {
     type: "input",
     name: "links",
