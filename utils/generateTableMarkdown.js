@@ -1,54 +1,56 @@
 
+function generateMarkdownTable(data){
 
-function genValidation(data){
+
+    const {
+        titleConfirm,
+        visualConfirm,
+        creditsConfirm,
+        descriptionConfirm,
+        installConfirm,
+        licenseConfirm,
+        linksConfirm,
+        logoConfirm,
+        futureConfirm,
+        usernameConfirm,
+        statusConfirm,
+      } = qconfirm;
+
+
     let validatedData;
-    if (data.descriptionConfirm === true){ 
-        validatedData.push(`- [Description](#description)`)
+    validatedData += "## Table of Contents<br>";
+    if (titleConfirm === true){ 
+        validatedData += "- [Title(#title)<br>";
     }
-    else if (data.descriptionConfirm === true){ 
-        validatedData.push(`- [Description](#description)`)
+    else if (logoConfirm === true){ 
+        validatedData += "- [logo](#logo)<br>";
     }
-    else if (data.descriptionConfirm === true){ 
-        validatedData.push(`- [Description](#description)`)
+    else if (installConfirm === true){ 
+        validatedData += "- [Installation](#installation)<br>";
     }
-    else if (data.descriptionConfirm === true){ 
-        validatedData.push(`- [Description](#description)`)
+    else if (descriptionConfirm === true){ 
+        validatedData += "- [Description](#description)<br>";
     }
-    else if (data.descriptionConfirm === true){ 
-        validatedData.push(`- [Description](#description)`)
+    else if (usageConfirm === true){ 
+        validatedData += "- [Usage](#usage)<br>";
     }
-    else if (data.descriptionConfirm === true){ 
-        validatedData.push(`- [Description](#description)`)
+    else if (linksConfirm === true){ 
+        validatedData += "- [Integration/Deploy Links](#integrationdeploy-links)<br>";
     }
-    else if (data.descriptionConfirm === true){ 
-        validatedData.push(`- [Description](#description)`)
+    else if (creditsConfirm === true){ 
+        validatedData += "- [Credits](#credits)<br>";
     }
-    else if (data.descriptionConfirm === true){ 
-        validatedData.push(`- [Description](#description)`)
+    else if (usernameConfirm === true){ 
+        validatedData += "- [Contact info/Questions](#contact-infoquestions)<br>";
     }
-    
+    else if (licenseConfirm === true){ 
+        validatedData += "- [License](#license)<br>";
+    }else if (statusConfirm === true){ 
+        validatedData += "- [Project/Assignment-Status](#projectassignment-status)<br>";
+    }
+    validatedData += "<br>";
+
+    return validatedData;
 }
 
-
-function generateMarkdownTable(data){
-     return`## Table of Contents
-
-     ${"```md"}
-        
-
-
-     - [Description](#description)
-- [Table of Contents](#table-of-contents)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Integration/Deploy Links](#integrationdeploy-links)
-- [Credits](#credits)
-- [Contact info/Questions](#contact-infoquestions)
-- [License](#license)
-- [Project/Assignment-Status](#projectassignment-status)
-     
-     ${"```"}
-
-
-`}
-module.exports = generateMarkdown;
+module.exports = generateMarkdownTable;

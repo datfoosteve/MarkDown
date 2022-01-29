@@ -1,25 +1,23 @@
-const genLogoTable,genVisualTable,genLicenseTable,
-
 // function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
 
   if (license === "MIT License") {
-    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+    return `<br>[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
   } else if (license === "GNU Lesser General Public License v3.0") {
-    return `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`
+    return `<br>[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`
   } else if (license === "Mozilla Public License 2.0") {
-    return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
+    return `<br>[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
   } else if (license === "GNU Affero General Public License v3.0") {
-    return `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`
+    return `<br>[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`
   } else if (license === "The Unlicense") {
-    return `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`
+    return `<br>[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`
   } else if (license === "Apache License 2.0") {
-    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+    return `<br>[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
   } else if (license === "GNU General Public License v3.0") {
-    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
+    return `<br>[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
   } else if (license === "WTFPL") {
-    return `[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
+    return `<br>[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
   } else { //
     return ``
   }
@@ -31,21 +29,21 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === "MIT License") {
-    return `[![MIT License](https://opensource.org/licenses/MIT)`
+    return `<br>[![MIT License](https://opensource.org/licenses/MIT)`
   } else if (license === "GNU Lesser General Public License v3.0") {
-    return `[![GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0)`
+    return `<br>[![GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0)`
   } else if (license === "Mozilla Public License 2.0") {
-    return `[![Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)`
+    return `<br>[![Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)`
   } else if (license === "GNU Affero General Public License v3.0") {
-    return `[![GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0)`
+    return `<br>[![GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0)`
   } else if (license === "The Unlicense") {
-    return `[![The Unlicense](http://unlicense.org/)`
+    return `<br>[![The Unlicense](http://unlicense.org/)`
   } else if (license === "Apache License 2.0") {
-    return `[![Apache License 2.0](https://opensource.org/licenses/Apache-2.0)`
+    return `<br>[![Apache License 2.0](https://opensource.org/licenses/Apache-2.0)`
   } else if (license === "GNU General Public License v3.0") {
-    return '[![GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0)]'
+    return `<br>[![GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0)]`
   } else if (license === "WTFPL") {
-    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
+    return `<br>[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   } else { //
     license = ``;
   }
@@ -59,8 +57,8 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
 
   if (license != 'None') {
-    
-    return`## License
+
+    return `## License
     ${renderLicenseBadge(license)}
 
     ${renderLicenseLink(license)}
@@ -68,16 +66,16 @@ function renderLicenseSection(license) {
     [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
     `
   } else { //
-    return``;
+    return ``;
   }
 }
 
 // rendering badge for the top of the page
 function renderLicenseTop(license) {
   if (license != 'None') {
-    return`${renderLicenseBadge(license)}`;
+    return `<br>${renderLicenseBadge(license)}`;
   } else { //
-    return``;
+    return ``;
   }
 }
 
@@ -86,13 +84,13 @@ function renderLicenseTop(license) {
 function renderVisualDescription(data) {
 
   if (data.visual === true) {
-    return`
+    return `
     
     ![someImageGIF](/repository/assets/employee.png?raw=true "Employee Data title")
 
     `
   } else { //
-    return``;
+    return ``;
   }
 
 }
@@ -100,86 +98,88 @@ function renderVisualDescription(data) {
 function renderLogo(data) {
 
   if (data.logo === true) {
-    return`
+    return `
     <p align="center">
     ##Visual Representation
 
     ![Somelogo](/repository/assets/employee.png?raw=true "Employee Data title")
 
     </p>`;
-  }else { 
-    return``;
+  } else {
+    return ``;
   }
 }
 
 
+//a function to generate markdown for README
 function generateMarkdown(data) {
-  return`
 
-`}
- //a function to generate markdown for README
-function generateMarkdown(data) {
-  return`
-  <p align="center">
-#${data.title}
-
-</p>
   
-${renderLicenseTop(data.license)}
+const {
+  logo,
+  title,
+  visual,
+  description,
+  install,
+  usage,
+  links,
+  license,
+  contributing,
+  credits,
+  username,
+  status,
+  future,
+  qConfirm
+} = data;
 
-${renderLogo(data)}
+  return `
+#${title}
+
+
+  
+${renderLicenseTop(license)}
+
+${renderLogo(logo)}
 
 ## Description
-${"```md"}
-
-${data.description}
-
-${"```"}
 
 
-## Table of Contents
 
-${"```md"}
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-- [Integration/Deploy Links]
-- [Contact info/Questions]
-- [Project/Assignment-Status]
+$
 
-${"```"}
+
+${generateMarkdownTable(qConfirm)}
 
 ${renderVisualDescription(data)}
 
 ## Installation
 
-${"```md"}
-${data.install}
-${"```"}
+
+${install}
+
 
 ## Usage
 
-${"```md"}
-${data.usage}
-${"```"}
+
+${usage}
+
 
 
 ## Integration/Deploy Links
 
-${data.links}
+${links}
 
 ## Credits
 
-${"```md"}
 
-${data.credits}
 
-${"```"}
+${credits}
+
+
 
 ## Contact info/Questions
 [This is my Email](stephenandarlie@gmail.com)
-[GithubLink](https://github.com/datfoosteve)
+[GithubLink](https://github.com/${username})
 
 Feel Free To Contact me with any of your questions!
 
@@ -189,14 +189,14 @@ ${renderLicenseSection(data.license)}
 
 ## Project/Assignment-Status
 
-${"```md"}
-${data.future}
-${"```"}
+
+${future}
+
 `;
-}
+};
 
 
-
+  module.exports = generateMarkdown;
 
 
   // listOfLicenses = [{
@@ -265,5 +265,3 @@ ${"```"}
   //   }
 
   // ]
-
-  module.exports = generateMarkdown;

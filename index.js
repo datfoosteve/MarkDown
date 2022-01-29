@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
-const genTableReadme = require("./utils/generateTableMarkdown");
+const genReadmeTable = require("./utils/generateTableMarkdown");
 const fs = require("fs");
 
 /* This code is used to ask the user if they want to generate a README.md file. */
@@ -54,7 +54,7 @@ const questions = [
         message: "A Program Link Section"
       },
       {
-        name: 'creditConfirm',
+        name: 'creditsConfirm',
         message: "A Contribution/Credit Section"
       },
       {
@@ -104,7 +104,7 @@ const questions = [
   },
   {
     type: 'editor',
-    name: 'description',
+    name: "description",
     message: 'Please write a short description of this program. The length of the description must be ateast 2 lines.',
     when: (qConfirm) => qConfirm.descriptionConfirm === true,
     validate(text) {
@@ -231,8 +231,8 @@ function writeToFile(fileName, data) {
 // function to initialize app
 function init() {
   inquirer.prompt(questions).then((userAnswer) => {
-    const readmeText = genTableReadme(userAnswer);
     const readmeText = genReadme(userAnswer);
+    const readmetableText = genReadmeTable(userAnswer)
     console.clear();
     console.log("Answers recorded");
 
