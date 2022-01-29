@@ -150,6 +150,7 @@ const questions = [
     name: "username",
     message: "Input your github username",
     when: data => data.qConfirm.includes('usernameConfirm') ? true : false,
+  },
   {
     type: "list",
     name: "license",
