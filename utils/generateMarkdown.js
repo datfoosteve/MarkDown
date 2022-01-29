@@ -26,7 +26,10 @@ function renderLicenseBadge(license) {
 }
 
 function generateMARKDOWNTOC(data){
-  const {qConfirm} = data;
+  const {titleConfirm,visualConfirm,creditsConfirm,descriptionConfirm,
+  installConfirm,licenseConfirm,linksConfirm,
+  logoConfirm,futureConfirm,usernameConfirm,statusConfirm,
+} = data.qConfirm;
 
   return() => {
   validatedData = "## Table of Contents<br>"; 
@@ -60,7 +63,8 @@ function generateMARKDOWNTOC(data){
       validatedData += "- [Project/Assignment-Status](#projectassignment-status)<br>";
   }
   validatedData += "<br>";
-console.log(validatedData);
+
+  console.log(validatedData);
 
 }
 
@@ -142,7 +146,7 @@ function renderLogo(data) {
 
   if (data.qConfirm.logoConfirm) {
     return `<br>
-    ##Visual Representation
+    ## Visual Representation
     <p align="center">
     <img width="300" height="300" src="/assets/engineer.png">
 </p>
@@ -158,6 +162,26 @@ function generateTitle (data){
   <p align="center"> ${title}
   #### <p align="center"> 09 Node.js Homework:
   `
+}
+
+
+
+function generateDescription (data){ 
+  if (data.qConfirm.logoConfirm) {
+  return`## Description <br>
+  <p align="center">${description}
+  #### <p align="center"> 09 Node.js Homework:
+  `}
+  else {return``;}
+
+}
+
+function generateInstallation (data){ 
+  if (data.qConfirm.install) {
+  return`## Installation <br>
+  <p align="center">${install}
+  `}
+  else {return``;}
 
 }
 
@@ -175,18 +199,15 @@ const {
   logoConfirm,futureConfirm,usernameConfirm,statusConfirm,
 } = data.qConfirm;
 
-return`
+return`<br><br>${generateTitle}
+
 
 ${renderLicenseTop(license)}
 
 ${renderLogo(data)}
- 
-## Description <br>
 
 
-
-${description}
-
+${generateDescription}
 
 ${generateMARKDOWNTOC(data)} <br>
 
