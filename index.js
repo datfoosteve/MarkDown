@@ -1,14 +1,7 @@
 const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
-const genReadmeTable = require("./utils/generateMARKDOWNTOC");
 const fs = require("fs");
-const {
-  nextTick,
-  exit
-} = require("process");
-const {
-  doesNotMatch
-} = require("assert");
+
 
 /* This code is used to ask the user if they want to generate a README.md file. */
 const askUserStart = {
@@ -152,7 +145,7 @@ const questions = [{
     type: "input",
     name: "credits",
     message: "Input the creditors of this project.",
-    when: (data) => (data.qConfirm.includes("creditConfirm") ? true : false),
+    when: (data) => (data.qConfirm.includes("creditsConfirm") ? true : false),
   },
   {
     type: "input",
@@ -239,8 +232,10 @@ function writeToFile(fileName, data) {
 // function to initialize app
 function init() {
   inquirer.prompt(questions).then((userAnswer) => {
+    console.log(userAnswer);
+    console.log(userAnswer.qConfirm);
     const readmeText = genReadme(userAnswer);
-    const readmetableText = genReadmeTable(userAnswer);
+    // const readmetableText = generateMARKDOWNTOC(userAnswer);
     console.clear();
     console.log("Answers recorded");
 
@@ -259,6 +254,7 @@ function init() {
 }
 
 function startReadme() {
+ 
   inquirer.prompt(askUserStart).then((userAnswer) => {
     if (userAnswer.userChoice === "Yes") {
       console.clear();
