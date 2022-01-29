@@ -88,25 +88,25 @@ const questions = [
     type: "input",
     name: "title",
     message: "What is the title of this Program Application?",
-    when: (qConfirm) => qConfirm.titleConfirm === true,
+    when: data => data.qConfirm.includes('titleConfirm') ? true : false
   },
   {
     type: "confirm",
     name: "logo",
     message: "Do you want img src boiler plate placed into the Logo Section??",
-    when: (qConfirm) => qConfirm.logoConfirm === true,
+    when: data => data.qConfirm.includes('logoConfirm') ? true : false
   },
   {
     type: "confirm",
     name: "visual",
     message: "Do you want img src boiler plate placed into the visual Section?",
-    when: (qConfirm) => qConfirm.visualConfirm === true,
+    when: data => data.qConfirm.includes('visualConfirm') ? true : false
   },
   {
     type: 'editor',
     name: "description",
     message: 'Please write a short description of this program. The length of the description must be ateast 2 lines.',
-    when: (qConfirm) => qConfirm.descriptionConfirm === true,
+    when: data => data.qConfirm.includes('descriptionConfirm') ? true : false,
     validate(text) {
       if (text.split('\n').length < 2) {
         return 'Must be at least 2 lines.';
@@ -116,7 +116,7 @@ const questions = [
     type: 'editor',
     name: 'install',
     message: 'Please write a short installation summary of the program in atleast 2 lines.',
-    when: (qConfirm) => qConfirm.installConfirm === true,
+    when: data => data.qConfirm.includes('installConfirm') ? true : false,
     validate(text) {
       if (text.split('\n').length < 2) {
         return 'Must be at least 2 lines.';
@@ -126,7 +126,7 @@ const questions = [
     type: 'editor',
     name: 'usage',
     message: 'Please write on how the usage is for this program in atleast 2 lines.',
-    when: (qConfirm) => qConfirm.usageConfirm === true,
+    when: data => data.qConfirm.includes('usageConfirm') ? true : false,
     validate(text) {
       if (text.split('\n').length < 2) {
         return 'Must be at least 2 lines.';
@@ -137,25 +137,24 @@ const questions = [
     type: "input",
     name: "links",
     message: "Input your Deploy links if you have any.",
-    when: (qConfirm) => qConfirm.linksConfirm === true,
+    when: data => data.qConfirm.includes('linksConfirm') ? true : false,
   },
   {
     type: "input",
     name: "credits",
     message: "Input the creditors of this project.",
-    when: (qConfirm) => qConfirm.creditConfirm === true,
+    when: data => data.qConfirm.includes('creditConfirm') ? true : false,
   },
   {
     type: "input",
     name: "username",
     message: "Input your github username",
-    when: (qConfirm) => qConfirm.usernameConfirm === true,
-  },
+    when: data => data.qConfirm.includes('usernameConfirm') ? true : false,
   {
     type: "list",
     name: "license",
     message: "What license would you like to include for this program?",
-    when: (qConfirm) => qConfirm.licenseConfirm === true,
+    when: data => data.qConfirm.includes('licenseConfirm') ? true : false,
     choices: [
       new inquirer.Separator(
         " =============================================== "
@@ -196,7 +195,7 @@ const questions = [
     type: "list",
     name: "status",
     message: "Status of the current project? ",
-    when: (qConfirm) => qConfirm.statusConfirm === true,
+    when: data => data.qConfirm.includes('statusConfirm') ? true : false,
     choices: [
       {
         name: "Finished and Finalized",
@@ -219,7 +218,7 @@ const questions = [
     type: "input",
     name: "future",
     message: "Future Plans for this project?",
-    when: (qConfirm) => qConfirm.futureConfirm === true,
+    when: data => data.qConfirm.includes('futureConfirm') ? true : false,
   },
 ];
 
