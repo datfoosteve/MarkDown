@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
-const genReadmeTable = require("./utils/generateTableMarkdown");
+const genReadmeTable = require("./utils/generateMARKDOWNTOC");
 const fs = require("fs");
 const {
   nextTick,

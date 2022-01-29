@@ -1,5 +1,5 @@
 
-function generateMarkdownTable(data){
+function generateMarkdownTOC(data){
 
 
     const {
@@ -53,4 +53,4 @@ function generateMarkdownTable(data){
     return validatedData;
 }
 
-module.exports = generateMarkdownTable;
+module.exports = generateMarkdownTOC;
