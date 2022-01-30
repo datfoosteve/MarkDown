@@ -1,7 +1,14 @@
-let dataobject = {
-  questArrayObject = [{data: data}],
-  questionValidObject = [{}]
-};
+function copy(obj) {
+  const copy = Object.create(Object.getPrototypeOf(obj))
+  const propNames = Object.getOwnPropertyNames(obj)
+
+  propNames.forEach(function(name) {
+    const desc = Object.getOwnPropertyDescriptor(obj, name)
+    Object.defineProperty(copy, name, desc)
+  })
+
+  return copy
+}
 
 // function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -37,43 +44,47 @@ function generateMARKDOWNTOC(data){
   const {titleConfirm,visualConfirm,creditsConfirm,descriptionConfirm,
   installConfirm,licenseConfirm,linksConfirm,
   logoConfirm,futureConfirm,usernameConfirm,statusConfirm,
-}= data.qConfirm;
+} = data[{titleConfirm,visualConfirm,creditsConfirm,descriptionConfirm,
+  installConfirm,licenseConfirm,linksConfirm,
+  logoConfirm,futureConfirm,usernameConfirm,statusConfirm}] 
+  
+
 
     
   validatedData = "## Table of Contents"; 
-  if (data.titleConfirm){ 
+  if (titleConfirm){ 
       validatedData +="- [Title(#title)";
   }
-  if (data.logoConfirm){ 
+  if (logoConfirm){ 
       validatedData += "- [logo](#logo)";
   }
-  if (data.installConfirm ){ 
+  if (installConfirm ){ 
       validatedData += "- [Installation](#installation)";
   }
-  if (data.descriptionConfirm ){ 
+  if (descriptionConfirm ){ 
       validatedData += "- [Description](#description)";
   }
-  if (data.usageConfirm ){ 
+  if (usageConfirm ){ 
       validatedData += "- [Usage](#usage)";
   }
-  if (data.linksConfirm ){ 
+  if (linksConfirm ){ 
       validatedData += "- [Integration/Deploy Links](#integrationdeploy-links)";
   }
-  if (data.creditsConfirm ){ 
+  if (creditsConfirm ){ 
       validatedData += "- [Credits](#credits)";
   }
-  if (data.usernameConfirm ){ 
+  if (usernameConfirm ){ 
       validatedData += "- [Contact info/Questions](#contact-infoquestions)";
   }
-  if (data.licenseConfirm ){ 
+  if (licenseConfirm ){ 
       validatedData += "- [License](#license)";
-  }if (data.statusConfirm ){ 
+  }if (statusConfirm ){ 
       validatedData += "- [Project/Assignment-Status](#projectassignment-status)";
   }
   validatedData += "";
 
   console.log(validatedData);
-return(validatedData);
+return validatedData;
 }
 
 //  Create a function that returns the license link
@@ -135,7 +146,7 @@ function renderLicenseTop(license) {
 function renderVisualDescription(data) {
 
   if (data.visual) {
-    return `![someImageGIF](src="./assets/engineer.png?raw=true" "Employee Data title")
+    return `[![someImageGIF](src="./assets/engineer.png?raw=true" "Employee Data title")
 
   `
   } else { //
@@ -228,17 +239,11 @@ Feel Free To Contact me with any of your questions!`
 //a function to generate markdown for README
 function generateMarkdown(data){
   
-  const {
-    logo,title,visual,description,install,usage,
-    links,license,credits,username,
-    status,future} = data;
-  
-  // const {
-  //   titleConfirm,visualConfirm,creditsConfirm,descriptionConfirm,
-  //   installConfirm,licenseConfirm,linksConfirm,
-  //   logoConfirm,futureConfirm,usernameConfirm,statusConfirm,
-  // } = data.qConfirm;
-
+  {data, qConfirm, license}
+  // let userAnswer = copy(data);
+  // let userConfirm = copy(qConfirm);
+  // userAnswer.alias = data;
+ 
 
 return`${generateTitle(data)}
 
@@ -248,7 +253,7 @@ ${renderLogo(data)}
 
 ${generateDescription(data)}
 
-${generateMARKDOWNTOC(data.qConfirm)} 
+${generateMARKDOWNTOC(qConfirm)} 
 
 ${renderVisualDescription(data)} 
 
@@ -266,7 +271,7 @@ ${links}
 
 ${credits}
 
-${renderLicenseSection(data.license)}
+${renderLicenseSection(license)}
 
 [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
 

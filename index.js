@@ -2,6 +2,11 @@ const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
 const fs = require("fs");
 
+let qObject = [{
+  key = "",
+  value = false,
+  choices = [{name = ""}]
+}];
 
 /* This code is used to ask the user if they want to generate a README.md file. */
 const askUserStart = {
@@ -17,6 +22,7 @@ const askUserStart = {
   ],
 };
 
+
 // an array of questions for user input
 const questions = [{
     type: "checkbox",
@@ -24,7 +30,7 @@ const questions = [{
     name: "qConfirm",
     choices: [
       {
-        name: "titleConfirm"
+        name: "titleConfirm",
       },
       {
         name: "logoConfirm"
@@ -250,12 +256,13 @@ function writeToFile(fileName, data) {
 // function to initialize app
 function init() {
   inquirer.prompt(questions).then((userAnswer) => {
+
     console.log("===============================[init() function: before inquirer answer passthrough]=================================");
     console.log(userAnswer);
     console.log(userAnswer.qConfirm);
     console.log("===============================[init() function: after inquirer answer passthrough]=================================");
-    const readmeText = genReadme(userAnswer);
-    generateMARKDOWNTOC(questions.qConfirm);
+    const readmeText = genReadme(userAnswer,userAnswer.qConfirm);
+    generateMARKDOWNTOC(questionsqConfirm);
     console.clear();
     console.log("Answers recorded");
 
