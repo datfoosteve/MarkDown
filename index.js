@@ -22,53 +22,42 @@ const questions = [{
     type: "checkbox",
     message: "Preprocess inquiry Question: Please Select the sections that you want to Generate in your README.md .",
     name: "qConfirm",
-    choices: [{
-        name: "titleConfirm",
-        message: "A title Section",
+    choices: [
+      {
+        name: "titleConfirm"
       },
       {
-        name: "logoConfirm",
-        message: "A Program logo Section",
+        name: "logoConfirm"
       },
       {
-        name: "descriptionConfirm",
-        message: "A Program Description Section",
+        name: "descriptionConfirm"
       },
       {
-        name: "installConfirm",
-        message: "A Program install Section",
+        name: "installConfirm"
       },
       {
-        name: "usageConfirm",
-        message: "A Program Usage Section",
+        name: "usageConfirm"
       },
       {
-        name: "visualConfirm",
-        message: "A Program Visual Section",
+        name: "visualConfirm"
       },
       {
-        name: "linksConfirm",
-        message: "A Program Link Section",
+        name: "linksConfirm"
       },
       {
-        name: "creditsConfirm",
-        message: "A Contribution/Credit Section",
+        name: "creditsConfirm"
       },
       {
-        name: "usernameConfirm",
-        message: "A Question Section",
+        name: "usernameConfirm"
       },
       {
-        name: "licenseConfirm",
-        message: "A Licensing Section",
+        name: "licenseConfirm"
       },
       {
-        name: "statusConfirm",
-        message: "A Program Status Section",
+        name: "statusConfirm"
       },
       {
-        name: "futureConfirm",
-        message: "A Program logo Section",
+        name: "futureConfirm"
       },
     ],
     validate(answer) {
@@ -79,7 +68,6 @@ const questions = [{
       return true;
     },
   },
-
   {
     type: "input",
     name: "title",
@@ -138,19 +126,25 @@ const questions = [{
   {
     type: "input",
     name: "links",
-    message: "Input your Deploy links if you have any.",
+    message: "Input your Deploy links if you have any, or links to any resources to this project and to anything else.",
     when: (data) => (data.qConfirm.includes("linksConfirm") ? true : false),
   },
   {
     type: "input",
     name: "credits",
-    message: "Input the creditors of this project.",
+    message: "Input the creditors/helpers/donators/contributers of this project or anyone specially named.",
     when: (data) => (data.qConfirm.includes("creditsConfirm") ? true : false),
   },
   {
     type: "input",
     name: "username",
     message: "Input your github username",
+    when: (data) => (data.qConfirm.includes("usernameConfirm") ? true : false),
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Input your contact email",
     when: (data) => (data.qConfirm.includes("usernameConfirm") ? true : false),
   },
   {
@@ -165,27 +159,51 @@ const questions = [{
       {
         name: "MIT License",
       },
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "GNU Lesser General Public License v3.0",
       },
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "Mozilla Public License 2.0",
       },
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "GNU Affero General Public License v3.0",
       },
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "The Unlicense",
       },
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "Apache License 2.0",
       },
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "GNU General Public License v3.0",
       },
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "WTFPL",
       },
+      new inquirer.Separator(
+        " =============================================== "
+      ),
       {
         name: "None",
       },
@@ -206,13 +224,13 @@ const questions = [{
         name: "Finished for now, coming back to it",
       },
       {
-        name: "Not Finished, Stil in progress",
+        name: "Not Finished, Still in progress",
       },
       {
         name: "Not finished, Not looking back",
       },
       {
-        name: "Uncertain",
+        name: "Uncertain on standing",
       },
     ],
   },
@@ -232,10 +250,12 @@ function writeToFile(fileName, data) {
 // function to initialize app
 function init() {
   inquirer.prompt(questions).then((userAnswer) => {
+    console.log("===============================[init() function: before inquirer answer passthrough]=================================");
     console.log(userAnswer);
     console.log(userAnswer.qConfirm);
+    console.log("===============================[init() function: after inquirer answer passthrough]=================================");
     const readmeText = genReadme(userAnswer);
-    // const readmetableText = generateMARKDOWNTOC(userAnswer);
+    generateMARKDOWNTOC(questions.qConfirm);
     console.clear();
     console.log("Answers recorded");
 
@@ -254,7 +274,7 @@ function init() {
 }
 
 function startReadme() {
- 
+
   inquirer.prompt(askUserStart).then((userAnswer) => {
     if (userAnswer.userChoice === "Yes") {
       console.clear();

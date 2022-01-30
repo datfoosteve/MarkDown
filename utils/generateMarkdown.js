@@ -1,73 +1,79 @@
-
+let dataobject = {
+  questArrayObject = [{data: data}],
+  questionValidObject = [{}]
+};
 
 // function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
 
   if (license === "MIT License") {
-    return `<br>[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
   } else if (license === "GNU Lesser General Public License v3.0") {
-    return `<br>[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`
+    return `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`
   } else if (license === "Mozilla Public License 2.0") {
-    return `<br>[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
+    return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
   } else if (license === "GNU Affero General Public License v3.0") {
-    return `<br>[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`
+    return `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`
   } else if (license === "The Unlicense") {
-    return `<br>[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`
+    return `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`
   } else if (license === "Apache License 2.0") {
-    return `<br>[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
   } else if (license === "GNU General Public License v3.0") {
-    return `<br>[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
+    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
   } else if (license === "WTFPL") {
-    return `<br>[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
+    return `[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)`
   } else { //
-    return ``
+    return ``;
   }
 }
 
+/**
+ * This function generates the table of contents for the markdown file.
+ * @param data - The data object that contains the data that will be used to generate the markdown.
+ * @returns a string containing the info\
+ */
 function generateMARKDOWNTOC(data){
   const {titleConfirm,visualConfirm,creditsConfirm,descriptionConfirm,
   installConfirm,licenseConfirm,linksConfirm,
   logoConfirm,futureConfirm,usernameConfirm,statusConfirm,
-} = data.qConfirm;
+}= data.qConfirm;
 
-  return() => {
-  validatedData = "## Table of Contents<br>"; 
+    
+  validatedData = "## Table of Contents"; 
   if (data.titleConfirm){ 
-      validatedData +"- [Title(#title)<br>";
+      validatedData +="- [Title(#title)";
   }
-  else if (data.logoConfirm){ 
-      validatedData += "- [logo](#logo)<br>";
+  if (data.logoConfirm){ 
+      validatedData += "- [logo](#logo)";
   }
-  else if (data.installConfirm ){ 
-      validatedData += "- [Installation](#installation)<br>";
+  if (data.installConfirm ){ 
+      validatedData += "- [Installation](#installation)";
   }
-  else if (data.descriptionConfirm ){ 
-      validatedData += "- [Description](#description)<br>";
+  if (data.descriptionConfirm ){ 
+      validatedData += "- [Description](#description)";
   }
-  else if (data.usageConfirm ){ 
-      validatedData += "- [Usage](#usage)<br>";
+  if (data.usageConfirm ){ 
+      validatedData += "- [Usage](#usage)";
   }
-  else if (data.linksConfirm ){ 
-      validatedData += "- [Integration/Deploy Links](#integrationdeploy-links)<br>";
+  if (data.linksConfirm ){ 
+      validatedData += "- [Integration/Deploy Links](#integrationdeploy-links)";
   }
-  else if (data.creditsConfirm ){ 
-      validatedData += "- [Credits](#credits)<br>";
+  if (data.creditsConfirm ){ 
+      validatedData += "- [Credits](#credits)";
   }
-  else if (data.usernameConfirm ){ 
-      validatedData += "- [Contact info/Questions](#contact-infoquestions)<br>";
+  if (data.usernameConfirm ){ 
+      validatedData += "- [Contact info/Questions](#contact-infoquestions)";
   }
-  else if (data.licenseConfirm ){ 
-      validatedData += "- [License](#license)<br>";
-  }else if (data.statusConfirm ){ 
-      validatedData += "- [Project/Assignment-Status](#projectassignment-status)<br>";
+  if (data.licenseConfirm ){ 
+      validatedData += "- [License](#license)";
+  }if (data.statusConfirm ){ 
+      validatedData += "- [Project/Assignment-Status](#projectassignment-status)";
   }
-  validatedData += "<br>";
+  validatedData += "";
 
   console.log(validatedData);
-
-}
-
+return(validatedData);
 }
 
 //  Create a function that returns the license link
@@ -76,21 +82,21 @@ function renderLicenseLink(license) {
 
 
   if (license === "MIT License") {
-    return `<br>[![MIT License](https://opensource.org/licenses/MIT)`
+    return `[![MIT License](https://opensource.org/licenses/MIT)`
   } else if (license === "GNU Lesser General Public License v3.0") {
-    return `<br>[![GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0)`
+    return `[![GNU Lesser General Public License v3.0](https://www.gnu.org/licenses/lgpl-3.0)`
   } else if (license === "Mozilla Public License 2.0") {
-    return `<br>[![Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)`
+    return `[![Mozilla Public License 2.0](https://opensource.org/licenses/MPL-2.0)`
   } else if (license === "GNU Affero General Public License v3.0") {
-    return `<br>[![GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0)`
+    return `[![GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0)`
   } else if (license === "The Unlicense") {
-    return `<br>[![The Unlicense](http://unlicense.org/)`
+    return `[![The Unlicense](http://unlicense.org/)`
   } else if (license === "Apache License 2.0") {
-    return `<br>[![Apache License 2.0](https://opensource.org/licenses/Apache-2.0)`
+    return `[![Apache License 2.0](https://opensource.org/licenses/Apache-2.0)`
   } else if (license === "GNU General Public License v3.0") {
-    return `<br>[![GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0)]`
+    return `[![GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0)]`
   } else if (license === "WTFPL") {
-    return `<br>[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
+    return `[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)`
   } else { //
     license = ``;
   }
@@ -103,16 +109,14 @@ function renderLicenseLink(license) {
 //  //${renderLicenseLink(license)}
 function renderLicenseSection(license) {
 
-  if (license != 'None') {
+if (license != 'None') {
 
-    return `
-    ## License <br><br>
-    ${renderLicenseBadge(license)}<br>
+return `## License 
 
-    ${renderLicenseLink(license)}<br>
-    
-    `
-  } else { //
+${renderLicenseBadge(license)}
+
+${renderLicenseLink(license)}`
+}else { //
     return ``;
   }
 }
@@ -120,7 +124,7 @@ function renderLicenseSection(license) {
 // rendering badge for the top of the page
 function renderLicenseTop(license) {
   if (license != 'None') {
-    return `<br><p align="center"><br>${renderLicenseBadge(license)} <br> }`;
+    return `<p align="center">${renderLicenseBadge(license)}  }`;
   } else { //
     return ``;
   }
@@ -131,11 +135,9 @@ function renderLicenseTop(license) {
 function renderVisualDescription(data) {
 
   if (data.visual) {
-    return `
-    
-    ![someImageGIF](src="./assets/engineer.png?raw=true" "Employee Data title")
+    return `![someImageGIF](src="./assets/engineer.png?raw=true" "Employee Data title")
 
-    `
+  `
   } else { //
     return ``;
   }
@@ -144,128 +146,134 @@ function renderVisualDescription(data) {
 // THis one is for logos, no explanation, just creates an open space
 function renderLogo(data) {
 
-  if (data.qConfirm.logoConfirm) {
-    return `<br>
-    ## Visual Representation
-    <p align="center">
-    <img width="300" height="300" src="/assets/engineer.png">
+  if (data.logoConfirm) {
+    return `## Visual Representation
+
+<p align="center">
+<img width="300" height="300" src="/assets/engineer.png">
 </p>
 
-    </p>`;
+</p>`;
   } else {
     return ``;
   }
 }
 
-function generateTitle (data){ 
-  return`<br>
-  <p align="center"> ${title}
-  #### <p align="center"> 09 Node.js Homework:
-  `
+function generateTitle(data){ 
+  if (data.titleConfirm) {
+return`<p align="center"> ${title}
+
+#### <p align="center"> 09 Node.js Homework:`}
+  else {return``;}
 }
 
 
-
+//data.descriptionConfirm
 function generateDescription (data){ 
-  if (data.qConfirm.logoConfirm) {
-  return`## Description <br>
-  <p align="center">${description}
-  #### <p align="center"> 09 Node.js Homework:
-  `}
+  if ((data) => (data.qConfirm.includes("descriptionConfirm") ? true : false)) {
+  return`## Description
+
+<p align="center">${data.description}
+#### <p align="center"> 09 Node.js Homework:`}
   else {return``;}
 
 }
+//data.installConfirm
+function generateInstallation(data){ 
+  if ((data) => (data.qConfirm.includes("installConfirm") ? true : false)) {
+return `## Installation 
 
-function generateInstallation (data){ 
-  if (data.qConfirm.install) {
-  return`## Installation <br>
-  <p align="center">${install}
-  `}
+${install}
+  
+`}
   else {return``;}
 
+}
+//(data.usageConfirm)
+function generateUsage (data){ 
+  if ((data) => (data.qConfirm.includes("titleConfirm") ? true : false)) {
+  return`## Usage 
+<p align="center">${usage}
+`}
+  else {return``;}
+}
+
+function generateUsage (data){ 
+  if (data.usageConfirm) {
+  return`## Installation
+
+<p align="center">${usage}
+`}
+  else {return``;}
+}
+
+function generateContact (data){
+ if(data.usernameConfirm){ return`## Contact info/Questions
+
+<div align=center>
+  
+[Email](${email})
+  
+[GithubLink](https://github.com/${username}) 
+  
+</div>
+  
+Feel Free To Contact me with any of your questions!`
+ } else{
+   return ``;
+ }
+  
 }
 
 //a function to generate markdown for README
 function generateMarkdown(data){
   
-const {
-  logo,title,visual,description,install,usage,
-  links,license,contributing,credits,username,
-  status,future,} = data;
+  const {
+    logo,title,visual,description,install,usage,
+    links,license,credits,username,
+    status,future} = data;
+  
+  // const {
+  //   titleConfirm,visualConfirm,creditsConfirm,descriptionConfirm,
+  //   installConfirm,licenseConfirm,linksConfirm,
+  //   logoConfirm,futureConfirm,usernameConfirm,statusConfirm,
+  // } = data.qConfirm;
 
-const {
-  titleConfirm,visualConfirm,creditsConfirm,descriptionConfirm,
-  installConfirm,licenseConfirm,linksConfirm,
-  logoConfirm,futureConfirm,usernameConfirm,statusConfirm,
-} = data.qConfirm;
 
-return`<br><br>${generateTitle}
-
+return`${generateTitle(data)}
 
 ${renderLicenseTop(license)}
 
 ${renderLogo(data)}
 
+${generateDescription(data)}
 
-${generateDescription}
+${generateMARKDOWNTOC(data.qConfirm)} 
 
-${generateMARKDOWNTOC(data)} <br>
+${renderVisualDescription(data)} 
 
-${renderVisualDescription(data)} <br>
+${generateInstallation(data)}
 
+${generateContact(data)}
 
-## Installation 
-<br>
+${generateUsage(data)}
 
-${install}
-
-<br>
-
-
-### Usage
-
-<br><br>
-
-
- <br>
-${usage} <br>
- 
-
-
-
-## Integration/Deploy Links <br>
+## Integration/Deploy Links
 
 ${links}
 
-## Credits <br>
-
-
+## Credits
 
 ${credits}
 
-
-
-## Contact info/Questions 
-<div align=center>
-
-[This is my Email](stephenandarlie@gmail.com)
-
-
-[GithubLink](https://github.com/datfoosteve) 
-<br>
-</div>
-
-Feel Free To Contact me with any of your questions!<br>
-
-${renderLicenseSection(data.license)} <br>
+${renderLicenseSection(data.license)}
 
 [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
 
-## Project/Assignment-Status <br>
+## Project/Assignment-Status
 
+${future}
 
-${future} <br>
-
-` }
+`}
 
 module.exports = generateMarkdown;
