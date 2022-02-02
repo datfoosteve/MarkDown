@@ -29,17 +29,15 @@ function renderLicenseBadge(license) {
  * @returns a string containing the info\
  */
 function generateMARKDOWNTOC({ qConfirm }) {
-  console.log(qConfirm[0]);
-  console.log(qConfirm.indexOf("titleConfirm"));
 
-  let validatedData = "## Table of Contents\n\v";
+  let validatedData = "## Table of Contents\n";
   if (qConfirm.indexOf("titleConfirm")) {
-    validatedData = validatedData + "- [Title(#title)\n";
+    validatedData = validatedData + "- [Title](#title)\n";
   }
   if (qConfirm.indexOf("logoConfirm")) {
     validatedData = validatedData + "- [logo](#logo)\n";
   }
-  if (qConfirm.indexOf("installConfirm")) {
+  if (qConfirm.indexOf("installConfirm")){
     validatedData = validatedData + "- [Installation](#installation)\n";
   }
   if (qConfirm.indexOf("descriptionConfirm")) {
@@ -99,7 +97,7 @@ function renderLicenseLink(license) {
 //  //${renderLicenseLink(license)}
 function renderLicenseSection(license) {
   if (license != "None") {
-    return `## License 
+    return `## License
 
 ${renderLicenseBadge(license)}
 
@@ -113,7 +111,7 @@ ${renderLicenseLink(license)}`;
 // rendering badge for the top of the page
 function renderLicenseTop(license) {
   if (license != "None") {
-    return `<p align="center">${renderLicenseBadge(license)}  }`;
+    return `<p align="center">${renderLicenseBadge(license)}`;
   } else {
     //
     return ``;
@@ -135,12 +133,9 @@ function renderVisualDescription(data) {
 // THis one is for logos, no explanation, just creates an open space
 function renderLogo(data) {
   if (data.logoConfirm) {
-    return `## Visual Representation
-
-<p align="center">
-<img width="300" height="300" src="/assets/engineer.png">
-</p>
-
+    return `## Visual Representation  
+<p align="center">  
+<img width="300" height="300" src="/assets/engineer.png">  
 </p>`;
   } else {
     return ``;
@@ -150,10 +145,9 @@ function renderLogo(data) {
 function generateTitle(data) {
   if (data.qConfirm.indexOf("titleConfirm")) {
     return `<p align="center"> ${data.title}
-    
-    #### <p align="center"> 09 Node.js Homework:`;
+#### <p align="center"> 09 Node.js Homework: </p>`;
   } else {
-    return ``;
+return ``;
   }
 }
 
@@ -161,9 +155,8 @@ function generateTitle(data) {
 function generateDescription(data) {
   if ((data) => (data.qConfirm.includes("descriptionConfirm") ? true : false)) {
     return `## Description
-
 <p align="center">${data.description}
-#### <p align="center"> 09 Node.js Homework:`;
+#### <p align="center"> 09 Node.js Homework: </p>`;
   } else {
     return ``;
   }
@@ -171,7 +164,7 @@ function generateDescription(data) {
 //data.installConfirm
 function generateInstallation(data) {
   if ((data) => (data.qConfirm.includes("installConfirm") ? true : false)) {
-    return `## Installation 
+return `## Installation
 
 ${data.install}
   
@@ -185,7 +178,7 @@ function generateUsage(data) {
   if ((data) => (data.qConfirm.includes("titleConfirm") ? true : false)) {
     return `## Usage 
 <p align="center">${data.usage}
-`;
+</p>`;
   } else {
     return ``;
   }
@@ -194,9 +187,10 @@ function generateUsage(data) {
 function generateUsage(data) {
   if (data.usageConfirm) {
     return `## Installation
-
+  
 <p align="center">${data.usage}
-`;
+  
+</p>`;
   } else {
     return ``;
   }
@@ -204,14 +198,10 @@ function generateUsage(data) {
 
 function generateContact({ email, username, usernameConfirm }) {
   if (usernameConfirm) {
-    return `## Contact info/Questions
-
-<div align=center>
-  
-[Email](${email})
-  
-[GithubLink](https://github.com/${username}) 
-  
+    return `## Contact info/Questions\n
+<div align=center>\n
+[Email](${email})\n
+[GithubLink](https://github.com/${username})\n
 </div>
   
 Feel Free To Contact me with any of your questions!`;
@@ -227,13 +217,13 @@ function generateMarkdown(data) {
 
 ${renderLicenseTop(data.license)}
 
-${renderLogo(data.logo)}
+${renderLogo(data)}
 
 ${generateDescription(data)}
 
 ${generateMARKDOWNTOC(data)} 
 
-${renderVisualDescription(data.qConfirm)} 
+${renderVisualDescription(data)} 
 
 ${generateInstallation(data)}
 

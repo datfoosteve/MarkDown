@@ -1,15 +1,14 @@
 
 
-<p align="center">[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  }
+<p align="center">[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
+
 
 
 
 ## Description
-
-<p align="center"> you want img src boiler plate placed into the visual Section? No
-? Please write a short description of this program.The length of the description must be ateast 2 lines. Press <enter> to launch your preferred editor.
-
-#### <p align="center"> 09 Node.js Homework:
+<p align="center">User is able to generate a professional README.md without having to worry about conversions of syntax and editing. 
+tHis program will use inquirer promps and even text editors to record, trasncribe and output a full readme automatically generated.
+#### <p align="center"> 09 Node.js Homework: </p>
 
 ## Table of Contents
 - [logo](#logo)
@@ -23,13 +22,15 @@
 - [Project/Assignment-Status](#projectassignment-status)
  
 
- 
+[![someImageGIF](src="./assets/engineer.png?raw=true" "Employee Data title")
 
-## Installation 
+   
 
- you want img src boiler plate placed into the visual Section? No
-? Please write a short description of this program.The length of the description must be ateast 2 lines. Press <enter> to launch your preferred editor.
+## Installation
 
+> To install this program, you must either download the repository . Then open it up using a IDE that uses Node.js, Open it up to the root, and then run the "index.js" from
+> a node.js Command line. Otherwise the user can copy the code, but if thats the case, then make sure you install the same dependencies listed in the package.json. 
+> Am always looking to make this better, feeel free to take it apart and change things up.
   
 
 
@@ -39,20 +40,21 @@
 
 ## Integration/Deploy Links
 
-heroku.com
+www.deployyourmom.com
 
 ## Credits
 
-Me myself and i
+Stephen Puthenpurackal\nEric Sayer
 
-## License 
+## License
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 
-[![MIT License](https://opensource.org/licenses/MIT)
+
+[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)
 
 [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
 
 ## Project/Assignment-Status
 
-no
+DIEING
