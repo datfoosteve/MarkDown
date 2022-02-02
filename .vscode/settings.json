@@ -1,0 +1,18 @@
+{
+    "oneDarkPro.bold": true,
+    "better-comments.highlightPlainText": true,
+    "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
+    "eslint.useESLintClass": true,
+    "merge-conflict.autoNavigateNextConflict.enabled": true,
+    "projectManager.any.baseFolders": [
+        "/\"C:\\Users\\datfo\\repos\""
+    ],
+    "auto-close-tag.insertSpaceBeforeSelfClosingTag": true,
+    "auto-close-tag.fullMode": true,
+    "auto-close-tag.SublimeText3Mode": true,
+    "alOutline.autoGenerateFiles": true,
+    "alOutline.openDefinitionInNewTab": true,
+    "alOutline.promptForFilePath": true,
+    "azureFunctions.projectOpenBehavior": "OpenInNewWindow",
+    "azureFunctions.projectLanguage": "JavaScript"
+}

@@ -2,11 +2,11 @@ const inquirer = require("inquirer");
 const genReadme = require("./utils/generateMarkdown");
 const fs = require("fs");
 
-let qObject = [{
-  key = "",
-  value = false,
-  choices = [{name = ""}]
-}];
+// let qObjet = [{
+//   key = "",
+//   value = false,
+//   choices = [{name = ""}]
+// }];
 
 /* This code is used to ask the user if they want to generate a README.md file. */
 const askUserStart = {
@@ -259,18 +259,19 @@ function init() {
 
     console.log("===============================[init() function: before inquirer answer passthrough]=================================");
     console.log(userAnswer);
-    console.log(userAnswer.qConfirm);
+    console.log(userAnswer.qConfirm[0]);
     console.log("===============================[init() function: after inquirer answer passthrough]=================================");
-    const readmeText = genReadme(userAnswer,userAnswer.qConfirm);
-    generateMARKDOWNTOC(questionsqConfirm);
-    console.clear();
+    const readmeText = genReadme(userAnswer);
+    
+    //generateMARKDOWNTOC(questionsqConfirm);
+    // console.clear();
     console.log("Answers recorded");
 
-    console.clear();
+    // console.clear();
     console.log("Generating Markdown...");
 
     writeToFile("./output/README.md", readmeText);
-    console.clear();
+    // console.clear();
     console.log("Generation Complete");
 
     console.log(
