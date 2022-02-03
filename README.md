@@ -1,5 +1,7 @@
 # Markdown Generator
-<p align="center">[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
+<p align="center">
+
+  [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 
 ## Description
 
@@ -41,9 +43,10 @@ Stephen Puthenpurackal(Me) and Eric Sayer(tutor)
 
 [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 
-[![Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)
+[Do What The 😘 You Want Public License](http://www.wtfpl.net/about/)
 
 [![wakatime](https://wakatime.com/badge/user/e28968b8-239d-45f9-bc7a-037d6eef5382.svg)](https://wakatime.com/@e28968b8-239d-45f9-bc7a-037d6eef5382)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ 
 [[MIT License](https://opensource.org/licenses/MIT)]
